@@ -66,8 +66,43 @@ public class Biblioteca {
         };
     }
 
-    public ArrayList<Jogo> boubleSort() {
 
+
+
+    /**
+     * criterio "titulo", "genero" ou "ano" - define o campo para ordenação
+     * titulo e genero - ordem alfabética
+     * ano - ordem crescente
+     * @return Lista ordenada de jogos
+     */
+    public ArrayList<Jogo> bubbleSort(String criterio) {
+        // 1. Converter a tabela hash para uma lista
+        ArrayList<Jogo> lista = listarJogos();
+        int n = lista.size();
+
+        // 2. Implementar o BubbleSort
+        // Loop externo: percorre toda a lista
+        for (int i = 0; i < n - 1; i++) {
+            boolean houveTroca = false;
+
+            // Loop interno: compara elementos que estão lado a lado
+            for (int j = 0; j < n - 1 - i; j++) {
+                // Compara o elemento atual com o próximo
+                if (comparar(lista.get(j), lista.get(j + 1), criterio) > 0) {
+                    // Troca os elementos se estiverem fora de ordem
+                    Jogo temp = lista.get(j);
+                    lista.set(j, lista.get(j + 1));
+                    lista.set(j + 1, temp);
+                    houveTroca = true;
+                }
+            }
+            // Otimização: se não houve troca, a lista já está ordenada
+            if (!houveTroca) {
+                break;
+            }
+        }
+        
+        return lista;
     }
 
     public ArrayList<Jogo> insertionSort() {
@@ -78,3 +113,6 @@ public class Biblioteca {
 
     }
 }
+
+
+
