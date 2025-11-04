@@ -54,19 +54,15 @@ public class Biblioteca {
     }
 
     private int comparar(Jogo jogo1, Jogo jogo2, String criterio) {
-        switch (criterio.toLowerCase()) {
-            case "titulo":
-                return jogo1.getTitulo().compareToIgnoreCase(jogo2.getTitulo());
-            case "genero":
-                return jogo1.getGenero().compareToIgnoreCase(jogo2.getGenero());
-            case "ano":
-                return Integer.compare(
-                        jogo1.getLançamento().getYear(),
-                        jogo2.getLançamento().getYear()
-                );
-            default:
-                return 0;
-        }
+        return switch (criterio.toLowerCase()) {
+            case "titulo" -> jogo1.getTitulo().compareToIgnoreCase(jogo2.getTitulo());
+            case "genero" -> jogo1.getGenero().compareToIgnoreCase(jogo2.getGenero());
+            case "ano" -> Integer.compare(
+                    jogo1.getLançamento().getYear(),
+                    jogo2.getLançamento().getYear()
+            );
+            default -> 0;
+        };
     }
 
     public ArrayList<Jogo> boubleSort() {
