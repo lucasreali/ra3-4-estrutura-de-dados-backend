@@ -70,8 +70,21 @@ public class Biblioteca {
 
     }
 
-    public ArrayList<Jogo> insertionSort() {
+    public ArrayList<Jogo> insertionSort(String criterio) {
+        ArrayList<Jogo> lista = new ArrayList<>(listarJogos());
 
+        for (int i = 1; i < lista.size(); i++) {
+            Jogo chave = lista.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && comparar(lista.get(j), chave, criterio) > 0) {
+                lista.set(j + 1, lista.get(j));
+                j--;
+            }
+
+            lista.set(j + 1, chave);
+        }
+        return lista;
     }
 
     public ArrayList<Jogo> quickSort() {
