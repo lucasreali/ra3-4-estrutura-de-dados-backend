@@ -3,7 +3,6 @@ package br.com.reali.tde34.storage;
 import br.com.reali.tde34.entity.Jogo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Biblioteca {
@@ -66,8 +65,29 @@ public class Biblioteca {
         };
     }
 
-    public ArrayList<Jogo> boubleSort() {
+    public ArrayList<Jogo> bubbleSort(String criterio) {
 
+        ArrayList<Jogo> lista = new ArrayList<>(listarJogos());
+        int n = lista.size();
+
+        for (int i = 0; i < n - 1; i++) {
+            boolean houveTroca = false;
+
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (comparar(lista.get(j), lista.get(j + 1), criterio) > 0) {
+
+                    Jogo temp = lista.get(j);
+                    lista.set(j, lista.get(j + 1));
+                    lista.set(j + 1, temp);
+                    houveTroca = true;
+                }
+            }
+            if (!houveTroca) {
+                break;
+            }
+        }
+        
+        return lista;
     }
 
     public ArrayList<Jogo> insertionSort(String criterio) {
@@ -87,7 +107,7 @@ public class Biblioteca {
         return lista;
     }
 
-    public ArrayList<Jogo> quickSort() {
+    public ArrayList<Jogo> quickSort(String criterio) {
 
     }
 }
