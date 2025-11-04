@@ -52,4 +52,16 @@ public class Biblioteca {
         }
         return todosJogos.toArray(new Jogo[0]);
     }
+
+    public ArrayList<Jogo> boubleSort() {
+
+    }
+
+    public ArrayList<Jogo> insertionSort() {
+
+    }
+
+    public ArrayList<Jogo> quickSort() {
+
+    }
 }
