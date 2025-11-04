@@ -17,7 +17,7 @@ public class Biblioteca {
     }
 
     public void inserir(Jogo jogo) {
-        int id = geraId(jogo.getName());
+        int id = geraId(jogo.getTitulo());
         if (!jogos.containsKey(id)) {
             jogos.put(id, new ArrayList<>());
         }
@@ -37,7 +37,7 @@ public class Biblioteca {
         }
 
         for (Jogo jogo : lista) {
-            if (jogo.getName().equals(name)) {
+            if (jogo.getTitulo().equals(name)) {
                 return jogo;
             }
         }
@@ -51,6 +51,22 @@ public class Biblioteca {
             todosJogos.addAll(lista);
         }
         return todosJogos.toArray(new Jogo[0]);
+    }
+
+    private int comparar(Jogo jogo1, Jogo jogo2, String criterio) {
+        switch (criterio.toLowerCase()) {
+            case "titulo":
+                return jogo1.getTitulo().compareToIgnoreCase(jogo2.getTitulo());
+            case "genero":
+                return jogo1.getGenero().compareToIgnoreCase(jogo2.getGenero());
+            case "ano":
+                return Integer.compare(
+                        jogo1.getLançamento().getYear(),
+                        jogo2.getLançamento().getYear()
+                );
+            default:
+                return 0;
+        }
     }
 
     public ArrayList<Jogo> boubleSort() {

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -14,5 +15,5 @@ import java.util.Date;
 public class Jogo {
     private String titulo;
     private String genero;
-    private Date lançamento;
+    private LocalDate lançamento;
 }
