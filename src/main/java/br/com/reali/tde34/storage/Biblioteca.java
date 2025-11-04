@@ -58,8 +58,8 @@ public class Biblioteca {
             case "titulo" -> jogo1.getTitulo().compareToIgnoreCase(jogo2.getTitulo());
             case "genero" -> jogo1.getGenero().compareToIgnoreCase(jogo2.getGenero());
             case "ano" -> Integer.compare(
-                    jogo1.getLançamento().getYear(),
-                    jogo2.getLançamento().getYear()
+                    jogo1.getLancamento().getYear(),
+                    jogo2.getLancamento().getYear()
             );
             default -> 0;
         };

@@ -15,5 +15,5 @@ import java.util.Date;
 public class Jogo {
     private String titulo;
     private String genero;
-    private LocalDate lançamento;
+    private LocalDate lancamento;
 }
