@@ -3,6 +3,7 @@ package br.com.reali.tde34.storage;
 import br.com.reali.tde34.entity.Jogo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Biblioteca {
@@ -45,12 +46,12 @@ public class Biblioteca {
         return null;
     }
 
-    public Jogo[] listarJogos() {
+    public ArrayList<Jogo> listarJogos() {
         ArrayList<Jogo> todosJogos = new ArrayList<>();
         for (ArrayList<Jogo> lista : jogos.values()) {
             todosJogos.addAll(lista);
         }
-        return todosJogos.toArray(new Jogo[0]);
+        return todosJogos;
     }
 
     private int comparar(Jogo jogo1, Jogo jogo2, String criterio) {
