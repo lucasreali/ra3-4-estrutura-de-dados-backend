@@ -1,6 +1,6 @@
 package br.com.reali.tde34.storage;
 
-import br.com.reali.tde34.entity.Jogo;
+import br.com.reali.tde34.entities.Jogo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -107,7 +107,7 @@ public class Biblioteca {
         return lista;
     }
 
-    public ArrayList<Jogo> quickSort(String criterio) {
-
+    public void quickSort(String criterio) {
+        return;
     }
 }
