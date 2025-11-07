@@ -107,7 +107,38 @@ public class Biblioteca {
         return lista;
     }
 
-    public void quickSort(String criterio) {
-        return;
+
+    public ArrayList<Jogo> quickSort(String criterio) {
+        ArrayList<Jogo> lista = new ArrayList<>(listarJogos());
+        quickSortRecursivo(lista, 0, lista.size() - 1, criterio);
+        return lista;
+    }
+
+    private void quickSortRecursivo(ArrayList<Jogo> lista, int inicio, int fim, String criterio) {
+        if (inicio < fim) {
+            int indicePivo = particionar(lista, inicio, fim, criterio);
+            quickSortRecursivo(lista, inicio, indicePivo - 1, criterio);
+            quickSortRecursivo(lista, indicePivo + 1, fim, criterio);
+        }
+    }
+
+    private int particionar(ArrayList<Jogo> lista, int inicio, int fim, String criterio) {
+        Jogo pivo = lista.get(fim);
+        int i = inicio - 1;
+
+        for (int j = inicio; j < fim; j++) {
+            if (comparar(lista.get(j), pivo, criterio) <= 0) {
+                i++;
+                Jogo temp = lista.get(i);
+                lista.set(i, lista.get(j));
+                lista.set(j, temp);
+            }
+        }
+
+        Jogo temp = lista.get(i + 1);
+        lista.set(i + 1, lista.get(fim));
+        lista.set(fim, temp);
+
+        return i + 1;
     }
 }
