@@ -108,7 +108,7 @@ public class Biblioteca {
                 break;
             }
         }
-        
+
         return lista;
     }
 
@@ -155,8 +155,8 @@ public class Biblioteca {
         
         // Exibir o pivô escolhido
         exibirPivo(pivo, nivel); */
-        
-        Jogo pivo = lista.get(fim); 
+
+        Jogo pivo = lista.get(fim);
         int i = inicio - 1;
 
         for (int j = inicio; j < fim; j++) {
@@ -176,8 +176,8 @@ public class Biblioteca {
     }
 
 
-
-/*     private void exibirVetor(ArrayList<Jogo> lista, int inicio, int fim, int nivel) {
+/*
+     private void exibirVetor(ArrayList<Jogo> lista, int inicio, int fim, int nivel) {
         String indentacao = "  ".repeat(nivel);
         System.out.println(indentacao + "Nível " + nivel + " - Vetor atual (posições " + inicio + " a " + fim + "):");
         
