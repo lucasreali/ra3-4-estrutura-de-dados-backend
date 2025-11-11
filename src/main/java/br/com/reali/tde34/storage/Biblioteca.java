@@ -138,6 +138,7 @@ public class Biblioteca {
 
     private void quickSortRecursivo(ArrayList<Jogo> lista, int inicio, int fim, String criterio) {
         if (inicio < fim) {
+            //exibirVetor(lista, inicio, fim, 0);
             int indicePivo = particionar(lista, inicio, fim, criterio);
             quickSortRecursivo(lista, inicio, indicePivo - 1, criterio);
             quickSortRecursivo(lista, indicePivo + 1, fim, criterio);
@@ -145,7 +146,17 @@ public class Biblioteca {
     }
 
     private int particionar(ArrayList<Jogo> lista, int inicio, int fim, String criterio) {
-        Jogo pivo = lista.get(fim);
+/*      // Alterar pivô para primeira posição - trocar primeiro com último
+        Jogo temp = lista.get(inicio);
+        lista.set(inicio, lista.get(fim));
+        lista.set(fim, temp);
+        
+        Jogo pivo = lista.get(fim); // Agora o pivô é o que estava na primeira posição
+        
+        // Exibir o pivô escolhido
+        exibirPivo(pivo, nivel); */
+        
+        Jogo pivo = lista.get(fim); 
         int i = inicio - 1;
 
         for (int j = inicio; j < fim; j++) {
@@ -163,4 +174,33 @@ public class Biblioteca {
 
         return i + 1;
     }
+
+
+
+/*     private void exibirVetor(ArrayList<Jogo> lista, int inicio, int fim, int nivel) {
+        String indentacao = "  ".repeat(nivel);
+        System.out.println(indentacao + "Nível " + nivel + " - Vetor atual (posições " + inicio + " a " + fim + "):");
+        
+        int limite = Math.min(10, fim - inicio + 1);
+        System.out.print(indentacao + "[");
+        
+        for (int i = 0; i < limite; i++) {
+            if (i > 0) System.out.print(", ");
+            System.out.print(lista.get(inicio + i).getTitulo());
+        }
+        
+        if (limite < fim - inicio + 1) {
+            System.out.print("... e mais " + (fim - inicio + 1 - limite) + " elementos");
+        }
+        
+        System.out.println("]");
+    }
+
+    private void exibirPivo(Jogo pivo, int nivel) {
+        String indentacao = "  ".repeat(nivel);
+        System.out.println(indentacao + "Pivô escolhido: " + pivo.getTitulo() + 
+                        " (Gênero: " + pivo.getGenero() + 
+                        ", Ano: " + pivo.getLancamento().getYear() + ")");
+    } */
+
 }
