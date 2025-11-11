@@ -1,0 +1,41 @@
+#!/bin/bash
+
+http POST http://localhost:8080/api/jogos titulo="The Legend of Zelda: Breath of the Wild" genero="Action-Adventure" lancamento="2017-03-03"
+
+http POST http://localhost:8080/api/jogos titulo="Minecraft" genero="Sandbox" lancamento="2011-11-18"
+
+http POST http://localhost:8080/api/jogos titulo="God of War" genero="Action-Adventure" lancamento="2018-04-20"
+
+http POST http://localhost:8080/api/jogos titulo="Red Dead Redemption 2" genero="Action-Adventure" lancamento="2018-10-26"
+
+http POST http://localhost:8080/api/jogos titulo="The Witcher 3: Wild Hunt" genero="RPG" lancamento="2015-05-19"
+
+http POST http://localhost:8080/api/jogos titulo="Grand Theft Auto V" genero="Action-Adventure" lancamento="2013-09-17"
+
+http POST http://localhost:8080/api/jogos titulo="Dark Souls III" genero="RPG" lancamento="2016-03-24"
+
+http POST http://localhost:8080/api/jogos titulo="Elden Ring" genero="RPG" lancamento="2022-02-25"
+
+http POST http://localhost:8080/api/jogos titulo="Cyberpunk 2077" genero="RPG" lancamento="2020-12-10"
+
+http POST http://localhost:8080/api/jogos titulo="Horizon Zero Dawn" genero="Action-RPG" lancamento="2017-02-28"
+
+http POST http://localhost:8080/api/jogos titulo="Bloodborne" genero="RPG" lancamento="2015-03-24"
+
+http POST http://localhost:8080/api/jogos titulo="Spider-Man" genero="Action-Adventure" lancamento="2018-09-07"
+
+http POST http://localhost:8080/api/jogos titulo="The Last of Us Part II" genero="Action-Adventure" lancamento="2020-06-19"
+
+http POST http://localhost:8080/api/jogos titulo="Ghost of Tsushima" genero="Action-Adventure" lancamento="2020-07-17"
+
+http POST http://localhost:8080/api/jogos titulo="Assassin's Creed Valhalla" genero="Action-RPG" lancamento="2020-11-10"
+
+http POST http://localhost:8080/api/jogos titulo="Sekiro: Shadows Die Twice" genero="Action-Adventure" lancamento="2019-03-22"
+
+http POST http://localhost:8080/api/jogos titulo="Death Stranding" genero="Action" lancamento="2019-11-08"
+
+http POST http://localhost:8080/api/jogos titulo="Resident Evil Village" genero="Survival Horror" lancamento="2021-05-07"
+
+http POST http://localhost:8080/api/jogos titulo="Final Fantasy VII Remake" genero="RPG" lancamento="2020-04-10"
+
+http POST http://localhost:8080/api/jogos titulo="Hades" genero="Roguelike" lancamento="2020-09-17"

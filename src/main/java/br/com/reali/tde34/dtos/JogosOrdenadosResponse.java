@@ -15,6 +15,6 @@ import java.util.List;
 public class JogosOrdenadosResponse {
     private String algoritmo;
     private String criterio;
+    private long tempoExecucaoMicros;
     private List<Jogo> jogos;
-    private long tempoExecucaoMs;
 }

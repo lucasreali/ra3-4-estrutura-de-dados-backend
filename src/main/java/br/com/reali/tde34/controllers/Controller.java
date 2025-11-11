@@ -29,17 +29,31 @@ public class Controller {
         return ResponseEntity.ok(biblioteca.listarJogos());
     }
 
+    @DeleteMapping("/{titulo}")
+    public ResponseEntity<String> removerJogo(@PathVariable String titulo) {
+        boolean removido = biblioteca.remover(titulo);
+
+        if (removido) {
+            return ResponseEntity.ok("Jogo removido com sucesso!");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/ordenar/bubble-sort")
     public ResponseEntity<JogosOrdenadosResponse> bubbleSort(@Valid @RequestBody OrdenarJogosRequest request) {
-        long inicio = System.currentTimeMillis();
+        long inicio = System.nanoTime();
         List<Jogo> jogosOrdenados = biblioteca.bubbleSort(request.getCriterio());
-        long fim = System.currentTimeMillis();
+        long fim = System.nanoTime();
+
+        long tempoNano = fim - inicio;
+        long tempoMicro = tempoNano / 1_000;
 
         JogosOrdenadosResponse response = new JogosOrdenadosResponse(
             "Bubble Sort",
             request.getCriterio(),
-            jogosOrdenados,
-            fim - inicio
+            tempoMicro,
+            jogosOrdenados
         );
 
         return ResponseEntity.ok(response);
@@ -47,15 +61,18 @@ public class Controller {
 
     @PostMapping("/ordenar/insertion-sort")
     public ResponseEntity<JogosOrdenadosResponse> insertionSort(@Valid @RequestBody OrdenarJogosRequest request) {
-        long inicio = System.currentTimeMillis();
+        long inicio = System.nanoTime();
         List<Jogo> jogosOrdenados = biblioteca.insertionSort(request.getCriterio());
-        long fim = System.currentTimeMillis();
+        long fim = System.nanoTime();
+
+        long tempoNano = fim - inicio;
+        long tempoMicro = tempoNano / 1_000;
 
         JogosOrdenadosResponse response = new JogosOrdenadosResponse(
             "Insertion Sort",
             request.getCriterio(),
-            jogosOrdenados,
-            fim - inicio
+            tempoMicro,
+            jogosOrdenados
         );
 
         return ResponseEntity.ok(response);
@@ -63,15 +80,18 @@ public class Controller {
 
     @PostMapping("/ordenar/quick-sort")
     public ResponseEntity<JogosOrdenadosResponse> quickSort(@Valid @RequestBody OrdenarJogosRequest request) {
-        long inicio = System.currentTimeMillis();
+        long inicio = System.nanoTime();
         List<Jogo> jogosOrdenados = biblioteca.quickSort(request.getCriterio());
-        long fim = System.currentTimeMillis();
+        long fim = System.nanoTime();
+
+        long tempoNano = fim - inicio;
+        long tempoMicro = tempoNano / 1_000;
 
         JogosOrdenadosResponse response = new JogosOrdenadosResponse(
             "Quick Sort",
             request.getCriterio(),
-            jogosOrdenados,
-            fim - inicio
+            tempoMicro,
+            jogosOrdenados
         );
 
         return ResponseEntity.ok(response);

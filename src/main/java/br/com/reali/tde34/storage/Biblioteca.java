@@ -1,10 +1,12 @@
 package br.com.reali.tde34.storage;
 
 import br.com.reali.tde34.entities.Jogo;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@Service
 public class Biblioteca {
     private final HashMap<Integer, ArrayList<Jogo>> jogos;
 
@@ -24,8 +26,28 @@ public class Biblioteca {
         jogos.get(id).add(jogo);
     }
 
-    public boolean remover(int id) {
-        return jogos.remove(id) != null;
+    public boolean remover(String nome) {
+        int id = geraId(nome);
+        ArrayList<Jogo> jogoArrayList = jogos.get(id);
+
+        if (jogoArrayList == null) {
+            return false;
+        }
+
+        for (int i = 0; i < jogoArrayList.size(); i++) {
+            if (jogoArrayList.get(i).getTitulo().equals(nome)) {
+                jogoArrayList.remove(i);
+
+                // Remove a lista se estiver vazia
+                if (jogoArrayList.isEmpty()) {
+                    jogos.remove(id);
+                }
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public Jogo buscar(String name) {
